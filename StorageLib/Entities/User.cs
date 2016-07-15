@@ -3,7 +3,7 @@
 namespace StorageLib.Entities
 {
     [Serializable]
-    public class User
+    public class User : ICloneable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -40,5 +40,17 @@ namespace StorageLib.Entities
             return Name + " " + SecondName + " " + DateOfBirth + " " + Gender + " " + Id;
         }
 
+        public object Clone()
+        {
+            return new User
+            {
+                Id = Id,
+                DateOfBirth = DateOfBirth,
+                Gender = Gender,
+                Name = Name,
+                SecondName = SecondName,
+                Visas = (CountryVisa[])Visas.Clone()
+            };
+        }
     }
 }

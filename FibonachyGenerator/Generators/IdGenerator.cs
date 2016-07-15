@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FibonachyGenerator.Interfaces;
 
-namespace FibonachyGenerator
+namespace FibonachyGenerator.Generators
 {
-    public class IdGenerator : IEnumerator<int>
+    public class IdGenerator : IGeneratorId
     {
         private int prevLastValue = 0;
         private int lastValue = 1;
